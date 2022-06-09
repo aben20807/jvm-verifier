@@ -36,7 +36,7 @@ final public class SearchPath {
     final static String file_seperator = System.getProperty ("file.separator");
     final static char   file_seperator_char = file_seperator.charAt (0);
 
-    private Vector path;
+    private Vector<PathEntry> path;
 
     /**
      *  Constructs a SearchPath object, given a system path.
@@ -139,7 +139,7 @@ final public class SearchPath {
 
     private void init (Enumeration st)
     {
-	path = new Vector ();
+	path = new Vector<PathEntry> ();
 	while (st.hasMoreElements ()) 
 	    {  
 		Object e = st.nextElement ();

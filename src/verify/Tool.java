@@ -46,7 +46,7 @@ class Tool
      
     int files_loaded = 0;
 
-    Hashtable options = new Hashtable ();
+    Hashtable<String, String> options = new Hashtable<> ();
 
     options.put ("verbose", "false");
     options.put ("stats", "false");
@@ -78,7 +78,7 @@ class Tool
     }
 
 
-    if ((new Boolean ((String) options.get ("banner"))).booleanValue ())
+    if (Boolean.parseBoolean (options.get ("banner")))
       {
 	System.err.println (  "------------------------------"
 			    + "------------------------------");
@@ -115,7 +115,7 @@ class Tool
       }
 
     ClassFileLoader provider 
-      = new ClassFileLoader ((String) options.get ("classpath"));
+      = new ClassFileLoader (options.get ("classpath"));
 
     verify.type.TypeContext context
       = new verify.type.TypeContext (provider);
@@ -172,7 +172,7 @@ class Tool
     long total_loading = ClassFileLoader.total_loading;
     long total = total_checking+total_loading;
 
-    if ((new Boolean ((String) options.get ("stats"))).booleanValue ())
+    if (Boolean.parseBoolean (options.get ("stats")))
       {
 	System.out.println ("=================================");
 	System.out.println ("          total times");
@@ -237,7 +237,7 @@ class ClassFileLoader implements ClassInfoProvider
   final SearchPath path;
   char filesep = System.getProperty ("file.separator", "/").charAt (0);
 
-  Hashtable table = new Hashtable ();
+  Hashtable<String, ClassFile> table = new Hashtable<> ();
 
   ClassFileLoader (String loadpath)
   {
@@ -249,7 +249,7 @@ class ClassFileLoader implements ClassInfoProvider
   /* this is the method made available to the system */
   public ClassFile load (String class_name)
   {
-    ClassFile result = (ClassFile)table.get (class_name);
+    ClassFile result = table.get (class_name);
     
     long now = System.currentTimeMillis ();
 

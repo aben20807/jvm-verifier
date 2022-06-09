@@ -64,7 +64,7 @@ final class DirectoryPathEntry extends PathEntry {
      *  in that directory.  
      */
 
-    private Hashtable seen_cache = new Hashtable ();
+    private Hashtable<String, CacheEntry> seen_cache = new Hashtable<> ();
 
     private boolean in_cache (File f)
     {

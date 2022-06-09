@@ -1,7 +1,7 @@
-$ git clone https://github.com/aben20807/jvm-verifier.git
-$ cd jvm-verifier/src/
-$ javac **/*.java -d build/
-$ cd build/
-$ jar cf ../../jvm-verifier.jar **/*.class
-$ jar cfm ../../jvm-verifier.jar ../../Manifest.txt **/*.class
-$ cd ../..
+git clone https://github.com/aben20807/jvm-verifier.git
+cd jvm-verifier/src/
+javac **/*.java -d build/
+cd build/
+jar cf ../../jvm-verifier.jar **/*.class
+jar cfm ../../jvm-verifier.jar ../../Manifest.txt **/*.class
+cd ../..

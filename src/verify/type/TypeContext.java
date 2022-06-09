@@ -124,8 +124,8 @@ public class TypeContext implements TypeTags
       return classForName (name);
   }
 
-  private final java.util.Hashtable classes
-    = new java.util.Hashtable ();
+  private final java.util.Hashtable<String, Type> classes
+    = new java.util.Hashtable<> ();
 
   public ClassType classForName (String className)
     throws IllegalTypeNameException

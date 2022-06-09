@@ -49,7 +49,7 @@ public class Signature {
     return declared_arguments[index];
   }
 
-  private static java.util.Stack stack_of_types = new java.util.Stack();
+  private static java.util.Stack<Type> stack_of_types = new java.util.Stack<>();
 
   public static Signature forString (TypeContext ctx, String sig)
     throws IllegalTypeNameException
